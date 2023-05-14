@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-import { getAddress } from '../../services/index';
+import { getMapInfo } from '../../store/mapInfoSlice';
+import { useAppDispatch } from '../../hooks/hooks';
 
 import Header from '../Header';
 import Map from '../Map';
@@ -8,15 +9,11 @@ import Map from '../Map';
 import './App.scss';
 
 const App = () => {
-  const [info, setInfo] = useState();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    (async () => {
-      const data = await getAddress('102.22.22.1');
-      setInfo(data);
-    })();
-    console.log(info);
-  }, []);
+    dispatch(getMapInfo('8.8.8.8'));
+  }, [dispatch]);
 
   return (
     <>
