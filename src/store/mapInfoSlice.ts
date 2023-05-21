@@ -28,7 +28,7 @@ export const getMapInfo = createAsyncThunk(
 );
 
 const initialState: IMapInfoState = {
-  ipAddress: '',
+  ipAddress: '8.8.8.8',
   info: undefined,
   isPending: false,
   error: null,
@@ -38,11 +38,6 @@ const mapInfoSlice = createSlice({
   name: 'mapInfo',
   initialState,
   reducers: {
-    // setInfo(state, action: PayloadAction<IInfo>) {
-    //   if (state.info) {
-    //     state.info = action.payload;
-    //   }
-    // },
     setIpAddress(state, action: PayloadAction<string>) {
       state.ipAddress = action.payload;
     },
@@ -56,6 +51,7 @@ const mapInfoSlice = createSlice({
       .addCase(getMapInfo.fulfilled, (state, action) => {
         state.isPending = false;
         state.info = action.payload;
+        console.log('state.info: ', state.info);
       })
       .addCase(getMapInfo.rejected, (state) => {
         state.isPending = true;

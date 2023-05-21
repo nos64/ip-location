@@ -4,7 +4,7 @@ import InfoBlock from '../InfoBlock';
 import { useAppSelector } from '../../hooks/hooks';
 
 const Info = () => {
-  const info = useAppSelector((state) => state.info.info);
+  const info = useAppSelector((state) => state.mapInfo.info);
 
   return (
     <ul className={styles.info}>
