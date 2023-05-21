@@ -3,7 +3,7 @@ import mapInfoReducer from './mapInfoSlice';
 
 const store = configureStore({
   reducer: {
-    info: mapInfoReducer,
+    mapInfo: mapInfoReducer,
   },
 });
 
